@@ -6,16 +6,15 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
-  config.vm.box = "hashicorp/precise32"
+  config.vm.box = "ubuntu/trusty32"
 
-  config.vm.define "scrapy1" do |scrapy1|
-    scrapy1.vm.host_name = "scrapy1"
+  config.vm.define "scrapyd" do |scrapyd|
+    scrapyd.vm.host_name = "scrapyd"
   end
 
   config.vm.provision :puppet do |puppet|
      puppet.manifests_path = "manifests"
      puppet.manifest_file  = "crawler.pp"
-     puppet.module_path = "modules"
      puppet.options = "--verbose --debug"
   end
 end
