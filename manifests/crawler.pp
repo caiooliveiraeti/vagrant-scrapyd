@@ -6,6 +6,6 @@ package { ['python-pip', 'build-essential', 'git', 'libffi-dev', 'libxml2-dev', 
 	ensure  => present,
 } ->
 exec { 'install scrapyd':
-    command => "pip install scrapyd",
+    command => "/usr/bin/pip install scrapyd",
     creates => '/usr/local/bin/scrapyd'
 }
